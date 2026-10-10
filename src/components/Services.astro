@@ -1,28 +1,36 @@
 ---
+import { BrainCircuit, DollarSign, ShieldCheck, GitBranch, Radio, Cloud } from "lucide-astro";
+
 const services = [
     {
         title: 'AI Adoption',
         description: 'Transform your business to become fully AI managed.',
+        Icon: BrainCircuit,
     },
     {
-        title: 'Revenue generation',
-        description: 'Engineering solutions to generate revenue for your business. Any industry. Any use case.',
+        title: 'Revenue Generation',
+        description: 'Engineering solutions that drive revenue. Any industry.',
+        Icon: DollarSign,
     },
     {
-        title: 'Cloud Security & Vulnerability Management',
-        description: 'Runtime and open-source vulnerability scanning, security tooling, and defensible pipelines for cloud-native platforms.',
+        title: 'Cloud Security',
+        description: 'Vulnerability scanning, security tooling, and defensible pipelines.',
+        Icon: ShieldCheck,
     },
     {
-        title: 'GitOps & Infrastructure as Code',
-        description: 'Reproducible, audit-friendly deployments on Kubernetes with Flux, Helm, Kustomize, and Terraform.',
+        title: 'GitOps & IaC',
+        description: 'Reproducible deployments with Flux, Helm, and Terraform.',
+        Icon: GitBranch,
     },
     {
-        title: 'Event-Driven Microservices',
-        description: 'High-throughput services on Kubernetes with Kafka streaming and caching tiers built for scale and low latency.',
+        title: 'Event-Driven Systems',
+        description: 'High-throughput services with Kafka and caching at scale.',
+        Icon: Radio,
     },
     {
         title: 'Cloud Architecture',
-        description: 'Resilient system design and infrastructure on AWS, SAP BTP, and Gardener — from prototype to production.',
+        description: 'Resilient infrastructure on Hyperscalers (AWS, Azure, GCP) and Kubernetes.',
+        Icon: Cloud,
     },
 ];
 ---
@@ -31,11 +39,14 @@ const services = [
     <p class="mb-10 max-w-2xl text-lg text-[var(--text-secondary)]">
         Need help shipping something secure and scalable? These are the areas I work in.
     </p>
-    <div class="grid gap-4 sm:grid-cols-2">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-            <div class="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 transition-colors hover:border-[var(--accent)]">
+            <div class="group rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 transition-all duration-200 hover:border-[var(--accent)] hover:-translate-y-1">
+                <div class="mb-4 inline-flex rounded-xl bg-[var(--accent)]/10 p-3 text-[var(--accent)] transition-colors group-hover:bg-[var(--accent)]/20">
+                    <service.Icon size={24} />
+                </div>
                 <h3 class="mb-2 text-lg font-semibold text-[var(--text-primary)]">{service.title}</h3>
-                <p class="text-[var(--text-secondary)]">{service.description}</p>
+                <p class="text-sm text-[var(--text-secondary)]">{service.description}</p>
             </div>
         ))}
     </div>
