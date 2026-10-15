@@ -11,12 +11,12 @@ interface Props {
 const { title, description, icon } = Astro.props;
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#now', label: 'Now' },
-  { href: '#services', label: 'Services' },
-  { href: '#certifications', label: 'Certs' },
+  { href: '/#about', label: 'About' },
+  { href: '/#now', label: 'Now' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#certifications', label: 'Certs' },
   { href: '/blog', label: 'Blog' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#contact', label: 'Contact' },
 ];
 ---
 <html lang="en">
@@ -37,7 +37,7 @@ const navLinks = [
 <body class="min-h-screen">
 <header class="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/80 backdrop-blur">
     <nav class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <a href="#" class="text-sm font-semibold tracking-tight text-[var(--text-primary)] no-underline hover:text-[var(--accent)]">
+        <a href="/" class="text-sm font-semibold tracking-tight text-[var(--text-primary)] no-underline hover:text-[var(--accent)]">
             Aly Elalwany
         </a>
         <ul class="hidden gap-6 text-sm text-[var(--text-secondary)] sm:flex">
