@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import {Github, Linkedin, Mail, Sun, Moon, Menu, X} from "lucide-astro";
 import { Icon } from 'astro-icon/components';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -27,6 +28,7 @@ const navLinks = [
 
     <title>{title}</title>
     <link rel="icon" href={icon} />
+    <ClientRouter />
     <script is:inline>
       (function() {
         var t = localStorage.getItem('theme');
@@ -109,7 +111,7 @@ const navLinks = [
     </footer>
 </main>
 <script is:inline>
-  (function() {
+  document.addEventListener('astro:page-load', function() {
     function getEffectiveTheme() {
       var stored = document.documentElement.getAttribute('data-theme');
       if (stored) return stored;
@@ -162,7 +164,7 @@ const navLinks = [
         });
       });
     }
-  })();
+  });
 </script>
 </body>
 </html>
