@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import {Github, Linkedin, Mail, Sun, Moon} from "lucide-astro";
+import {Github, Linkedin, Mail, Sun, Moon, Menu, X} from "lucide-astro";
 import { Icon } from 'astro-icon/components';
 
 interface Props {
@@ -49,16 +49,36 @@ const navLinks = [
                 </li>
             ))}
         </ul>
-        <button
-            id="theme-toggle"
-            type="button"
-            aria-label="Toggle dark/light mode"
-            class="rounded-full p-2 text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]"
-        >
-            <span id="theme-icon-sun" class="hidden"><Sun size={18} /></span>
-            <span id="theme-icon-moon" class="hidden"><Moon size={18} /></span>
-        </button>
+        <div class="flex items-center gap-2">
+            <button
+                id="theme-toggle"
+                type="button"
+                aria-label="Toggle dark/light mode"
+                class="rounded-full p-2 text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]"
+            >
+                <span id="theme-icon-sun" class="hidden"><Sun size={18} /></span>
+                <span id="theme-icon-moon" class="hidden"><Moon size={18} /></span>
+            </button>
+            <button
+                id="mobile-menu-toggle"
+                type="button"
+                aria-label="Toggle menu"
+                class="rounded-full p-2 text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)] sm:hidden"
+            >
+                <span id="menu-icon-open"><Menu size={18} /></span>
+                <span id="menu-icon-close" class="hidden"><X size={18} /></span>
+            </button>
+        </div>
     </nav>
+    <ul id="mobile-menu" class="hidden border-t border-[var(--border-color)] px-6 pb-4 text-sm text-[var(--text-secondary)] sm:hidden">
+        {navLinks.map((link) => (
+            <li class="py-3 border-b border-[var(--border-color)] last:border-0">
+                <a href={link.href} class="block no-underline transition-colors hover:text-[var(--accent)]">
+                    {link.label}
+                </a>
+            </li>
+        ))}
+    </ul>
 </header>
 
 <main class="mx-auto max-w-4xl px-6">
@@ -122,6 +142,26 @@ const navLinks = [
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function() {
       if (!localStorage.getItem('theme')) updateIcons(getEffectiveTheme());
     });
+
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var menuOpen = document.getElementById('menu-icon-open');
+    var menuClose = document.getElementById('menu-icon-close');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function() {
+        var isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuOpen.classList.toggle('hidden');
+        menuClose.classList.toggle('hidden');
+      });
+      mobileMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+          menuOpen.classList.remove('hidden');
+          menuClose.classList.add('hidden');
+        });
+      });
+    }
   })();
 </script>
 </body>
