@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import {Github, Linkedin, Mail, Sun, Moon, Menu, X} from "lucide-astro";
+import {Github, Linkedin, Mail, Newspaper, Sun, Moon, Menu, X} from "lucide-astro";
 import { Icon } from 'astro-icon/components';
 import { ClientRouter } from 'astro:transitions';
 
@@ -99,6 +99,10 @@ const navLinks = [
             <a href="mailto:alyelalwany@gmail.com" aria-label="Email"
                class="text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]">
                 <Mail size={22} />
+            </a>
+            <a href="https://substack.com/@elalwany" target="_blank" rel="noopener noreferrer" aria-label="Substack"
+               class="text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]">
+                <Newspaper size={22} />
             </a>
             <a href="https://buymeacoffee.com/elalwany" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee"
                class="text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]">
