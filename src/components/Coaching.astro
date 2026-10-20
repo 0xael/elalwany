@@ -1,0 +1,46 @@
+---
+import { Users, Target, TrendingUp, ArrowRight } from "lucide-astro";
+
+const offerings = [
+    {
+        title: 'Engineering Practices',
+        description: 'Code review culture, CI/CD maturity, testing strategies, and incident response — the habits that separate high-performing teams from the rest.',
+        Icon: Target,
+    },
+    {
+        title: 'AI Maturity',
+        description: 'Level up your team on AI adoption, Kubernetes, GitOps, observability, and security. Hands-on, not slide decks.',
+        Icon: TrendingUp,
+    },
+    {
+        title: 'Team Scaling',
+        description: 'Hiring, onboarding, and structuring engineering teams that stay productive as they grow. From 5 engineers to 50.',
+        Icon: Users,
+    },
+];
+---
+<section id="coaching" class="scroll-mt-20 border-t border-[var(--border-color)] py-20">
+    <h2 class="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--accent)]">Coaching</h2>
+    <p class="mb-10 max-w-2xl text-lg text-[var(--text-secondary)]">
+        I coach software teams at companies that want to build like big tech — without the big tech budget.
+        Drawing on years of building infrastructure at scale, I work with your engineers directly to raise the bar on delivery, reliability, and engineering culture.
+    </p>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {offerings.map((offering) => (
+            <div class="group rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 transition-all duration-200 hover:border-[var(--accent)] hover:-translate-y-1">
+                <div class="mb-4 inline-flex rounded-xl bg-[var(--accent)]/10 p-3 text-[var(--accent)] transition-colors group-hover:bg-[var(--accent)]/20">
+                    <offering.Icon size={24} />
+                </div>
+                <h3 class="mb-2 text-lg font-semibold text-[var(--text-primary)]">{offering.title}</h3>
+                <p class="text-sm text-[var(--text-secondary)]">{offering.description}</p>
+            </div>
+        ))}
+    </div>
+    <div class="mt-10">
+        <a href="mailto:alyelalwany@gmail.com"
+           class="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-[var(--bg-primary)] no-underline transition-opacity hover:opacity-90 hover:no-underline">
+            Let's talk
+            <ArrowRight size={16} />
+        </a>
+    </div>
+</section>
