@@ -3,6 +3,7 @@ const highlights = [
     'Co-developed the Application Vulnerability Report (AVR) — a platform-wide service scanning runtime applications across Cloud Foundry to surface open-source vulnerabilities at SAP scale, now part of SAP’s All-in on AI initiative.',
     'Co-architected AVR’s scanning pipeline with a Kafka ingestion layer and Redis caching tier, improving scan throughput and cutting end-to-end detection latency.',
     'Designed and operate GitOps pipelines on BTP and Gardener with Helm, Flux, and Kustomize for reproducible, audit-friendly deployments.',
+    'Contributing to SAP\'s open-source <a href="https://sap.github.io/crossplane-provider-docs/" target="_blank" class="underline">Crossplane Providers</a> — Kubernetes-native controllers that let teams provision and manage SAP BTP services declaratively through the Crossplane control plane.',
 ];
 ---
 <section id="now" class="scroll-mt-20 border-t border-[var(--border-color)] py-20">
@@ -16,7 +17,7 @@ const highlights = [
             {highlights.map((item) => (
                 <li class="flex gap-3 text-[var(--text-secondary)]">
                     <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"></span>
-                    <span>{item}</span>
+                    <span set:html={item} />
                 </li>
             ))}
         </ul>
