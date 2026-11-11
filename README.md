@@ -55,7 +55,6 @@ make lint
 make clean
 ```
 
-
 ## Project Structure
 
 ```text
